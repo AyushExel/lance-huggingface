@@ -311,17 +311,6 @@ for video in results:
     print(f"{video['caption']} - {video['aesthetic_score']:.2f}")
 ```
 
-### 6. Filter by Quality
-
-```python
-# Get high-quality videos
-high_quality = ds.scanner(
-    filter="aesthetic_score >= 4.5 AND motion_score >= 0.3",
-    columns=["caption", "aesthetic_score", "camera_motion"],
-    limit=20
-).to_table().to_pylist()
-```
-
 ## Dataset Evolution
 
 Lance supports flexible schema and data evolution ([docs](https://lance.org/guide/data_evolution/?h=evol)). You can add/drop columns, backfill with SQL or Python, rename fields, or change data types without rewriting the whole dataset. In practice this lets you:
