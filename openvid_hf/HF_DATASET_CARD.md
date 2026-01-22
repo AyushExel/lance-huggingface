@@ -66,10 +66,12 @@ print(f"LanceDB table opened with {len(tbl)} videos")
 
 ## Why Lance?
 
-- Optimized for AI workloads: Lance keeps multimodal data and vector search-ready storage in the same columnar format designed for accelerator-era retrieval (see [lance.org](https://lance.org)).
-- Images + embeddings + metadata travel as one tabular dataset.
-- On-disk, scalable ANN index means
-- Schema evolution lets you add new features/columns (moderation tags, embeddings, etc.) without rewriting the raw data.
+Lance is an open-source format designed for multimodal AI data, offering significant advantages over traditional formats like Parquet for modern AI workloads.
+
+- **Blazing Fast Random Access**: Optimized for fetching scattered rows, making it ideal for random sampling, real-time ML serving, and interactive applications without performance degradation.
+- **Native Multimodal Support**: Store text, embeddings, and other data types together in a single file. Large binary objects are loaded lazily, and vectors are optimized for fast similarity search.
+- **Efficient Data Evolution**: Add new columns and backfill data without rewriting the entire dataset. This is perfect for evolving ML features, adding new embeddings, or introducing moderation tags over time.
+- **Versatile Querying**: Supports combining vector similarity search, full-text search, and SQL-style filtering in a single query, all accelerated by on-disk indexes.
 
 
 ## Lance Blob API
